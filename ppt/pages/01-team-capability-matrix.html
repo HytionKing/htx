@@ -21,7 +21,6 @@
     width:1920px;height:1080px;background:var(--bg);position:relative;overflow:hidden;
     margin:24px auto;box-shadow:0 18px 60px rgba(0,0,0,.18);
   }
-  /* Decorative background */
   .slide::before{
     content:"";position:absolute;top:-220px;right:-220px;width:560px;height:560px;border-radius:50%;
     background:radial-gradient(circle at 30% 30%,rgba(255,121,0,.10),rgba(255,121,0,0) 70%);
@@ -40,31 +39,22 @@
   .title-main{font-size:46px;font-weight:700;letter-spacing:1px;}
   .title-main .accent{color:var(--primary);}
   .title-sub{margin-top:10px;font-size:18px;color:var(--ink-2);letter-spacing:4px;}
-
-  .crumb{
-    display:flex;align-items:center;gap:14px;font-size:16px;color:var(--ink-2);
-  }
-  .crumb .tag{
-    padding:6px 14px;border:1px solid var(--primary);color:var(--primary);border-radius:20px;font-weight:600;letter-spacing:1px;
-  }
+  .crumb{display:flex;align-items:center;gap:14px;font-size:16px;color:var(--ink-2);}
+  .crumb .tag{padding:6px 14px;border:1px solid var(--primary);color:var(--primary);border-radius:20px;font-weight:600;letter-spacing:1px;}
   .crumb .pageno{font-size:14px;letter-spacing:2px;}
 
-  /* Layout */
+  /* Body — 3 : 2 split, equal heights */
   .body{
-    position:absolute;top:200px;left:80px;right:80px;bottom:80px;display:grid;
-    grid-template-columns: 1.05fr 1.55fr;gap:48px;
+    position:absolute;top:200px;left:80px;right:80px;bottom:90px;display:grid;
+    grid-template-columns:3fr 2fr;gap:36px;
   }
-
-  /* Left column */
-  .col-left{display:flex;flex-direction:column;gap:24px;}
+  .col{display:grid;gap:24px;grid-template-rows:1.15fr 0.85fr;min-height:0;}
 
   .card{
-    background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 30px;position:relative;
-    box-shadow:0 6px 20px rgba(0,0,0,.04);
+    background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 28px;position:relative;
+    box-shadow:0 6px 20px rgba(0,0,0,.04);display:flex;flex-direction:column;min-height:0;
   }
-  .card .head{
-    display:flex;align-items:center;gap:14px;margin-bottom:18px;
-  }
+  .card .head{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
   .icon-box{
     width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;
     background:var(--primary-soft);color:var(--primary);
@@ -73,90 +63,75 @@
   .card .head h3{font-size:22px;font-weight:700;}
   .card .head .en{margin-left:auto;font-size:12px;color:#bdbdbd;letter-spacing:3px;text-transform:uppercase;}
 
+  /* Left top: challenges */
   .challenge-list{display:flex;flex-direction:column;gap:14px;}
-  .challenge-list li{
-    list-style:none;display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.7;color:var(--ink);
-  }
-  .challenge-list li .dot{
-    flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:var(--primary);margin-top:11px;
-  }
+  .challenge-list li{list-style:none;display:flex;gap:14px;align-items:flex-start;font-size:17px;line-height:1.75;color:var(--ink);}
+  .challenge-list li .dot{flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:var(--primary);margin-top:12px;}
   .challenge-list li strong{color:var(--primary);font-weight:700;}
 
-  .metrics{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px;
-  }
-  .metric{
-    background:#faf9f7;border:1px dashed var(--line);border-radius:12px;padding:14px 12px;text-align:center;
-  }
-  .metric .num{font-size:30px;font-weight:800;color:var(--primary);line-height:1;}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:auto;padding-top:18px;}
+  .metric{background:#faf9f7;border:1px dashed var(--line);border-radius:12px;padding:16px 12px;text-align:center;}
+  .metric .num{font-size:32px;font-weight:800;color:var(--primary);line-height:1;}
   .metric .num .u{font-size:14px;color:var(--ink-2);margin-left:3px;font-weight:600;}
   .metric .lbl{font-size:13px;color:var(--ink-2);margin-top:8px;letter-spacing:1px;}
 
-  /* Right column - Matrix */
-  .col-right{display:flex;flex-direction:column;gap:22px;}
-  .matrix-card{flex:1;display:flex;flex-direction:column;}
-  .legend{
-    display:flex;gap:22px;margin-left:auto;font-size:13px;color:var(--ink-2);align-items:center;
+  /* Left bottom: approach steps */
+  .steps-card{padding:24px 28px;}
+  .approach{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;flex:1;}
+  .step{
+    background:#fafafa;border:1px solid var(--line);border-radius:14px;padding:20px 18px 16px;position:relative;
+    display:flex;flex-direction:column;
   }
-  .legend .li{display:flex;align-items:center;gap:6px;}
+  .step .n{
+    position:absolute;top:-12px;left:18px;background:var(--primary);color:#fff;font-size:12px;font-weight:700;
+    padding:5px 12px;border-radius:10px;letter-spacing:2px;
+  }
+  .step h4{font-size:17px;font-weight:700;margin:8px 0 8px;color:var(--ink);}
+  .step p{font-size:13.5px;line-height:1.75;color:var(--ink-2);}
+
+  /* Right top: matrix */
+  .matrix-card{padding:24px 26px;}
+  .legend{display:flex;gap:14px;margin-left:auto;font-size:12px;color:var(--ink-2);align-items:center;}
+  .legend .li{display:flex;align-items:center;gap:5px;}
   .legend .sw{width:18px;height:18px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:700;}
   .sw.primary{background:var(--primary);}
   .sw.backup{background:#fff;border:1.5px solid var(--aux);color:var(--aux);}
   .sw.none{background:#f3f3f3;color:#cfcfcf;border:1px solid var(--line);}
 
-  .matrix{
-    margin-top:18px;border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  }
-  .matrix table{width:100%;border-collapse:collapse;font-size:14px;}
+  .matrix{margin-top:10px;border:1px solid var(--line);border-radius:14px;overflow:hidden;flex:1;}
+  .matrix table{width:100%;height:100%;border-collapse:collapse;font-size:13px;}
   .matrix th,.matrix td{
-    border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 10px;text-align:center;color:var(--ink);
+    border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 4px;text-align:center;color:var(--ink);
   }
-  .matrix th{
-    background:#fafafa;font-weight:600;color:var(--ink-2);font-size:13px;letter-spacing:1px;
-  }
-  .matrix th.row-h{text-align:left;padding-left:18px;}
-  .matrix td.row-h{
-    text-align:left;padding-left:18px;background:#fcfbfa;font-weight:600;color:var(--ink);font-size:14px;
-  }
-  .matrix td.row-h .sub{display:block;font-size:11px;color:#a8a8a8;margin-top:2px;font-weight:400;}
+  .matrix th{background:#fafafa;font-weight:600;color:var(--ink-2);font-size:12.5px;letter-spacing:1px;}
+  .matrix th.row-h{text-align:left;padding-left:14px;}
+  .matrix td.row-h{text-align:left;padding-left:14px;background:#fcfbfa;font-weight:600;color:var(--ink);font-size:13.5px;}
+  .matrix td.row-h .sub{display:block;font-size:10.5px;color:#a8a8a8;margin-top:2px;font-weight:400;}
   .matrix tr:last-child td{border-bottom:0;}
   .matrix th:last-child,.matrix td:last-child{border-right:0;}
-
-  .cell{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;font-size:12px;font-weight:700;}
+  .cell{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;font-size:11px;font-weight:700;}
   .cell.p{background:var(--primary);color:#fff;}
   .cell.b{background:#fff;border:1.5px solid var(--aux);color:var(--aux);}
   .cell.n{background:#f3f3f3;color:#cfcfcf;}
 
-  /* Outcome row */
-  .outcomes{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
-  }
+  /* Right bottom: outcome 2x2 */
+  .outcome-card{padding:24px 26px;}
+  .outcomes{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:14px;flex:1;}
   .out{
-    background:#fff;border:1px solid var(--line);border-left:4px solid var(--primary);border-radius:10px;padding:14px 16px;
+    background:#fafafa;border:1px solid var(--line);border-left:4px solid var(--primary);border-radius:12px;
+    padding:14px 16px;display:flex;flex-direction:column;justify-content:center;
   }
   .out:nth-child(2){border-left-color:var(--aux);}
-  .out:nth-child(3){border-left-color:var(--primary);}
-  .out:nth-child(4){border-left-color:var(--aux);}
-  .out .t{font-size:14px;color:var(--ink-2);}
-  .out .v{font-size:16px;font-weight:700;color:var(--ink);margin-top:4px;}
-
-  /* Approach steps */
-  .approach{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
-  }
-  .step{
-    background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;position:relative;
-  }
-  .step .n{
-    position:absolute;top:-12px;left:18px;background:var(--primary);color:#fff;font-size:12px;font-weight:700;
-    padding:4px 10px;border-radius:10px;letter-spacing:2px;
-  }
-  .step h4{font-size:16px;font-weight:700;margin:6px 0 8px;color:var(--ink);}
-  .step p{font-size:13px;line-height:1.7;color:var(--ink-2);}
+  .out:nth-child(3){border-left-color:var(--aux);}
+  .out:nth-child(4){border-left-color:var(--primary);}
+  .out .t{font-size:13px;color:var(--ink-2);letter-spacing:1px;}
+  .out .v{font-size:20px;font-weight:800;color:var(--ink);margin-top:6px;line-height:1.2;}
+  .out .v em{font-style:normal;color:var(--primary);}
+  .out:nth-child(2) .v em,.out:nth-child(3) .v em{color:var(--aux);}
 
   /* Footer */
   .footer{
-    position:absolute;bottom:28px;left:80px;right:80px;display:flex;justify-content:space-between;align-items:center;
+    position:absolute;bottom:30px;left:80px;right:80px;display:flex;justify-content:space-between;align-items:center;
     font-size:12px;color:#a8a8a8;letter-spacing:2px;
   }
   .footer .line{flex:1;height:1px;background:var(--line);margin:0 18px;}
@@ -166,13 +141,11 @@
 <section class="slide">
   <!-- Header -->
   <header class="header">
-    <div>
-      <div class="title-wrap">
-        <span class="title-bar"></span>
-        <div>
-          <div class="title-main">团队管理 · <span class="accent">业务能力矩阵建设</span></div>
-          <div class="title-sub">TEAM CAPABILITY MATRIX  /  人岗适配 · 互备协同 · 动态调度</div>
-        </div>
+    <div class="title-wrap">
+      <span class="title-bar"></span>
+      <div>
+        <div class="title-main">团队管理 · <span class="accent">业务能力矩阵建设</span></div>
+        <div class="title-sub">TEAM CAPABILITY MATRIX  /  人岗适配 · 互备协同 · 动态调度</div>
       </div>
     </div>
     <div class="crumb">
@@ -181,16 +154,14 @@
     </div>
   </header>
 
-  <!-- Body -->
+  <!-- Body 3:2 -->
   <div class="body">
 
-    <!-- LEFT: Challenge + Approach -->
-    <div class="col-left">
-
+    <!-- LEFT COLUMN (3) -->
+    <div class="col">
       <div class="card">
         <div class="head">
           <div class="icon-box">
-            <!-- alert icon -->
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           </div>
           <h3>面临挑战</h3>
@@ -201,118 +172,103 @@
           <li><span class="dot"></span><div><strong>单人负责制</strong>难以支撑业务增长，存在交付瓶颈与单点风险</div></li>
           <li><span class="dot"></span><div>人员请假 / 流动时，<strong>知识无承接</strong>，重点项目协同效率受损</div></li>
         </ul>
-
         <div class="metrics">
           <div class="metric"><div class="num">5+<span class="u">条线</span></div><div class="lbl">并行业务</div></div>
-          <div class="metric"><div class="num">3×<span class="u"></span></div><div class="lbl">迭代节奏</div></div>
+          <div class="metric"><div class="num">3×</div><div class="lbl">迭代节奏</div></div>
           <div class="metric"><div class="num">100%</div><div class="lbl">人员互备</div></div>
         </div>
       </div>
 
-      <div class="approach">
-        <div class="step">
-          <span class="n">STEP 1</span>
-          <h4>业务矩阵划分</h4>
-          <p>按业务特性切分领域，形成清晰的能力边界与协作单元。</p>
+      <div class="card steps-card">
+        <div class="head">
+          <div class="icon-box aux">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+          </div>
+          <h3>建设举措</h3>
+          <span class="en">APPROACH</span>
         </div>
-        <div class="step">
-          <span class="n">STEP 2</span>
-          <h4>人岗矩阵映射</h4>
-          <p>结合成员专长与发展意愿，主备搭配、能力对齐。</p>
-        </div>
-        <div class="step">
-          <span class="n">STEP 3</span>
-          <h4>动态调度赋能</h4>
-          <p>重点业务允许多人参与，按节奏轮岗、共享沉淀。</p>
+        <div class="approach">
+          <div class="step">
+            <span class="n">STEP 1</span>
+            <h4>业务矩阵划分</h4>
+            <p>按业务特性切分领域，形成清晰的能力边界与协作单元。</p>
+          </div>
+          <div class="step">
+            <span class="n">STEP 2</span>
+            <h4>人岗矩阵映射</h4>
+            <p>结合成员专长与意愿，主备搭配、能力对齐。</p>
+          </div>
+          <div class="step">
+            <span class="n">STEP 3</span>
+            <h4>动态调度赋能</h4>
+            <p>重点业务允许多人参与，轮岗共建、沉淀知识。</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- RIGHT: Matrix visual + outcomes -->
-    <div class="col-right">
-
+    <!-- RIGHT COLUMN (2) -->
+    <div class="col">
       <div class="card matrix-card">
         <div class="head">
           <div class="icon-box aux">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
           </div>
-          <h3>业务 × 人员 能力矩阵</h3>
+          <h3>业务 × 人员 矩阵</h3>
           <div class="legend">
             <span class="li"><span class="sw primary">主</span>主负责</span>
-            <span class="li"><span class="sw backup">备</span>互备支撑</span>
-            <span class="li"><span class="sw none">—</span>暂未覆盖</span>
+            <span class="li"><span class="sw backup">备</span>互备</span>
+            <span class="li"><span class="sw none">—</span>未覆盖</span>
           </div>
         </div>
-
         <div class="matrix">
           <table>
             <thead>
               <tr>
-                <th class="row-h">业务领域 / 成员</th>
-                <th>成员 A</th>
-                <th>成员 B</th>
-                <th>成员 C</th>
-                <th>成员 D</th>
-                <th>成员 E</th>
-                <th>成员 F</th>
+                <th class="row-h">业务 / 成员</th>
+                <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="row-h">用户中心<span class="sub">账户 · 权限 · 风控</span></td>
-                <td><span class="cell p">主</span></td>
-                <td><span class="cell b">备</span></td>
-                <td><span class="cell n">—</span></td>
-                <td><span class="cell b">备</span></td>
-                <td><span class="cell n">—</span></td>
-                <td><span class="cell n">—</span></td>
+                <td class="row-h">用户中心<span class="sub">账户·权限·风控</span></td>
+                <td><span class="cell p">主</span></td><td><span class="cell b">备</span></td><td><span class="cell n">—</span></td><td><span class="cell b">备</span></td><td><span class="cell n">—</span></td><td><span class="cell n">—</span></td>
               </tr>
               <tr>
-                <td class="row-h">订单交易<span class="sub">下单 · 履约 · 售后</span></td>
-                <td><span class="cell b">备</span></td>
-                <td><span class="cell p">主</span></td>
-                <td><span class="cell p">主</span></td>
-                <td><span class="cell n">—</span></td>
-                <td><span class="cell b">备</span></td>
-                <td><span class="cell n">—</span></td>
+                <td class="row-h">订单交易<span class="sub">下单·履约·售后</span></td>
+                <td><span class="cell b">备</span></td><td><span class="cell p">主</span></td><td><span class="cell p">主</span></td><td><span class="cell n">—</span></td><td><span class="cell b">备</span></td><td><span class="cell n">—</span></td>
               </tr>
               <tr>
-                <td class="row-h">商品库存<span class="sub">商品 · 库存 · 价格</span></td>
-                <td><span class="cell n">—</span></td>
-                <td><span class="cell b">备</span></td>
-                <td><span class="cell p">主</span></td>
-                <td><span class="cell b">备</span></td>
-                <td><span class="cell n">—</span></td>
-                <td><span class="cell b">备</span></td>
+                <td class="row-h">商品库存<span class="sub">商品·库存·价格</span></td>
+                <td><span class="cell n">—</span></td><td><span class="cell b">备</span></td><td><span class="cell p">主</span></td><td><span class="cell b">备</span></td><td><span class="cell n">—</span></td><td><span class="cell b">备</span></td>
               </tr>
               <tr>
-                <td class="row-h">营销活动<span class="sub">促销 · 优惠 · 投放</span></td>
-                <td><span class="cell n">—</span></td>
-                <td><span class="cell n">—</span></td>
-                <td><span class="cell b">备</span></td>
-                <td><span class="cell p">主</span></td>
-                <td><span class="cell p">主</span></td>
-                <td><span class="cell b">备</span></td>
+                <td class="row-h">营销活动<span class="sub">促销·投放</span></td>
+                <td><span class="cell n">—</span></td><td><span class="cell n">—</span></td><td><span class="cell b">备</span></td><td><span class="cell p">主</span></td><td><span class="cell p">主</span></td><td><span class="cell b">备</span></td>
               </tr>
               <tr>
-                <td class="row-h">支付结算<span class="sub">收银 · 对账 · 清结算</span></td>
-                <td><span class="cell b">备</span></td>
-                <td><span class="cell n">—</span></td>
-                <td><span class="cell n">—</span></td>
-                <td><span class="cell b">备</span></td>
-                <td><span class="cell b">备</span></td>
-                <td><span class="cell p">主</span></td>
+                <td class="row-h">支付结算<span class="sub">收银·对账</span></td>
+                <td><span class="cell b">备</span></td><td><span class="cell n">—</span></td><td><span class="cell n">—</span></td><td><span class="cell b">备</span></td><td><span class="cell b">备</span></td><td><span class="cell p">主</span></td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <div class="outcomes">
-        <div class="out"><div class="t">交付效率</div><div class="v">并行项目吞吐 ↑ 40%</div></div>
-        <div class="out"><div class="t">单点风险</div><div class="v">关键业务 0 阻塞</div></div>
-        <div class="out"><div class="t">人才梯队</div><div class="v">骨干互备覆盖 100%</div></div>
-        <div class="out"><div class="t">成长牵引</div><div class="v">人均覆盖领域 +2</div></div>
+      <div class="card outcome-card">
+        <div class="head">
+          <div class="icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          </div>
+          <h3>实施成效</h3>
+          <span class="en">OUTCOMES</span>
+        </div>
+        <div class="outcomes">
+          <div class="out"><div class="t">交付效率</div><div class="v">并行吞吐 <em>↑ 40%</em></div></div>
+          <div class="out"><div class="t">单点风险</div><div class="v">关键业务 <em>0 阻塞</em></div></div>
+          <div class="out"><div class="t">人才梯队</div><div class="v">互备覆盖 <em>100%</em></div></div>
+          <div class="out"><div class="t">成长牵引</div><div class="v">人均覆盖 <em>+2 领域</em></div></div>
+        </div>
       </div>
     </div>
 
